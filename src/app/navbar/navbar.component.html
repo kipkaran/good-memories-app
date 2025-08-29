@@ -1,0 +1,18 @@
+<nav class="nav">
+  <a mat-icon-button class="nav-title" routerLink="/">
+   <span>GM</span>
+  </a>
+
+ <span class="nav-spacer"></span>
+<!-- The humburger mwnu will be displayed in smaller size screens -->
+ <span class="hamburger" (click)="toggleMenu()">
+      <mat-icon class="humburger-icon">{{ isMenuOpen ? "close" : "menu" }}</mat-icon>
+  </span>
+<div class="nav-menu" [class.is-open]="isMenuOpen">
+  <a routerLink="" active-current="page" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}" (click)="toggleMenu()">Home</a>
+    <a routerLink="" routerLinkActive="active-link" (click)="toggleMenu()">About</a>
+  <a ><button mat-raised-button color="primary">Log in</button></a>
+</div>
+ 
+</nav>

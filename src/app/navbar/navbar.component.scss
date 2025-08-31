@@ -1,3 +1,4 @@
+/* navigation bar styles */
 .nav {
     background-color: transparent;
     display: flex;
@@ -15,15 +16,13 @@
       }
 
     .nav-title {
-        // margin: 0 auto;
-        // justify-content: space-between;
 
-    span {
-        padding: 0.5rem;
-        border-radius: 100%;
-        background-color: #3d550c;
-        color: #FFFFFF;
-      }
+      span {
+          padding: 0.5rem;
+          border-radius: 100%;
+          background-color: #3d550c;
+          color: #FFFFFF;
+        }
     }
 
     .hamburger {
@@ -42,7 +41,6 @@
       text-decoration: none;
       margin: 0.5rem;
       display: block;
-      //text-transform: capitalize;
      }
   
      a.active-link {
@@ -51,6 +49,7 @@
      }
   }
 
+/* navigation bar styles for smaller screens */
   @media (max-width: 600px) {
     .hamburger {
       display: inline-flex;

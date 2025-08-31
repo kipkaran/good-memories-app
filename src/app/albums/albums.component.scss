@@ -1,0 +1,58 @@
+/* Album section sylyes */
+.albums-container {
+    margin: 0 auto;
+    width: 90%;
+
+    /* Album title sylyes */
+    .album-title-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .back {
+            padding: 1rem;
+        }
+    }
+
+     /* Album cards sylyes */
+    .albums-cards {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        gap: 2.5rem;
+        padding: 0.5rem 0;
+
+        a {
+            text-decoration: none;
+            box-shadow: 0 4px 8px 0px #A10784, 0 6px 20px 0 rgba(94, 1, 97, 0.19);
+            transition: transform .3s;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            transform: scale(1.1);
+            box-shadow:  9px 15px #A10784;
+            border-radius: 4px;
+        }
+
+        mat-card {
+            max-width: 250px;
+
+            mat-card-actions {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .more-albums {
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+}

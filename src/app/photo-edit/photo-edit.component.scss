@@ -1,0 +1,14 @@
+.photo-edit {
+    margin: 0.5rem auto;
+    padding: 2rem;
+    max-width: 350px;
+    color: #3e0147;
+
+    mat-card-actions {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0.5rem;
+    }
+}

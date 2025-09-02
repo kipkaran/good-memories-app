@@ -1,10 +1,17 @@
+<!-- Users list title -->
 <div class="users-title">
     <h2>Users</h2>
 </div>
 
+<!-- loader -->
+<div *ngIf="isLoading" class="spinner-container">
+        <mat-spinner></mat-spinner>
+</div>
+
+<!-- Table to display table -->
 <div class="mat-elevation-z8 users-table">
   <table mat-table [dataSource]="dataSource">
-
+    
     <!-- Users Id Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -28,19 +35,18 @@
       <th mat-header-cell *matHeaderCellDef> Email </th>
       <td mat-cell *matCellDef="let users"> {{users.email}} </td>
     </ng-container>
-
-    <!-- Action column to access the album -->
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Albums </th>
-      <td mat-cell *matCellDef="let users">
-        <button mat-icon-button >
-           <mat-icon (click)=" openAlbums()">play_arrow</mat-icon> 
-        </button>  
-      </td>
+    
+    <!-- Total Albums Column -->
+    <ng-container matColumnDef="albumsTotal">
+      <th mat-header-cell *matHeaderCellDef> Total Albums </th>
+      <td mat-cell *matCellDef="let users"> <a>{{users.albumTotal}}</a> </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+    (click)="openAlbums(row)"
+    [class.selected] = "row === selectedRow" 
+    ></tr>
   </table>
 </div>
 

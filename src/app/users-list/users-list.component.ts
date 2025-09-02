@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsersService } from '../users.service';
+import { AlbumsServiceService } from '../albums-service.service';
 import { Users } from '../user';
 import { Router } from '@angular/router';
 
@@ -12,30 +13,39 @@ import { Router } from '@angular/router';
 })
 export class UsersListComponent implements OnInit {
 
-  displayedColumns: string[] = [ 'id', 'name', 'username', 'email', 'action'];
+  //variable to store loading state for mat-spinner
+  isLoading: boolean = true;
 
+  //this variable is used to display required columns
+  displayedColumns: string[] = [ 'id', 'name', 'username', 'email', 'albumsTotal'];
   
+  //variable to store fetched data
   dataSource = new MatTableDataSource<Users>([]);
   
 
-  constructor(private userService: UsersService, private router: Router,) { }
+  constructor(private userService: UsersService, private albumsService: AlbumsServiceService, private router: Router,) { }
 
   ngOnInit(): void {
-    this.getUserList();
+    //calling the users list method on initialisation
+    this.getUserList();    
   }
 
-  // This method gets users data from the jsonplaceholder via a service. 
+// This method gets  data from the jsonplaceholder via a service. 
   getUserList() {
-    this.userService.getUsers()
-      .subscribe((data: Users[]) =>{
+    this.userService.getUsersWithTotalAlbums()
+      .subscribe(data => {
         this.dataSource.data = data;
-        console.log(data);
+        this.isLoading = false;
       }
     );
   }
 
-  //This method navigates to the album page
-  openAlbums() {
+  //this tracks selected row
+  selectedRow: any = null; 
+
+  //This method navigates to the album page and handl's row click
+  openAlbums( row: any) {
+    this.selectedRow = this.selectedRow === row ? null:
     this.router.navigate(['album'])
   }
 }

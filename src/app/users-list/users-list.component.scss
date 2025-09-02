@@ -1,11 +1,24 @@
+/* font color variable */
 $color: #3d0146;
 
+/* title style */
 .users-title {
     margin: auto auto;
     width: 94%;
     text-align: center;
 }
 
+/* Spinner style */
+.spinner-container {
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* table styles */
 .users-table {
     margin: 1rem auto;
     width: 90%;
@@ -39,9 +52,10 @@ $color: #3d0146;
         text-align: center;
         }
 
-        mat-paginator {
-        color: $color;
-        font-weight: bold;
+        .mat-row:hover {
+            background-image: linear-gradient(to right top, #81b622, #2cd4a0, #5ee4f2, #c9edff, #ffffff);
+            color: #ffffff;
+            cursor: pointer;
         }
         
     }

@@ -1,0 +1,44 @@
+<!-- Album section -->
+<div class="albums-container">
+    <!-- Albums title and action buttons -->
+    <div class="album-title-container">
+    <div class="album-title">
+        <h1 class="name">Albums</h1>
+    </div>
+    <div class="back">
+        <button mat-raised-button routerLink="/users" color="accent">Back</button>
+    </div>
+    </div>
+    <!-- Albums display -->
+<div class="album-user-container">
+  <div *ngFor="let user of users" class="album-user-title">
+    <h2>{{ user.name }}'s Albums</h2>
+    <div class="album-block">
+      <a routerLink="/albumInfo" *ngFor="let album of user.albums"><mat-card class="album-card">
+           <img *ngIf="album.coverPhoto" mat-card-image [src]="album.coverPhoto" alt="Album Cover Photo">
+           <mat-card-content>
+           <p><span>Album Title:</span> {{ album.title }}</p>
+           </mat-card-content>
+        <mat-card-actions>
+            <p>Album ID: {{ album.id }}</p>
+            <p>Total Photos: {{ album.photoCount }}</p>
+        </mat-card-actions>
+      </mat-card></a>
+    </div>
+  </div>
+</div>
+    <!-- <div class="albums-cards">
+        <a routerLink="/albumInfo" *ngFor="let albums of users">
+            <mat-card *ngFor="let user of users">
+            <mat-card-header>
+                <mat-card-title>{{user.name}}</mat-card-title>
+            </mat-card-header>
+            <img *ngIf="albums.coverPhoto" mat-card-image [src]="albums.coverPhoto" alt="Album Cover Photo">
+            <mat-card-actions>
+                <p>{{albums.id}}</p>
+                <p>{{albums.photoCount}}</p>
+            </mat-card-actions>
+        </mat-card></a>
+    </div>
+</div> -->
+

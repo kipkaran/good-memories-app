@@ -10,21 +10,23 @@
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: space-between;
-
-        .back {
-            padding: 1rem;
-        }
     }
 
      /* Album cards sylyes */
-    .albums-cards {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        align-content: center;
-        justify-content: center;
-        gap: 2.5rem;
-        padding: 0.5rem 0;
+    .album-user-container {
+        width: 100%;
+
+        .album-block {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: 1fr;
+            gap: 1.5rem;
+        }
+
+        .album-card {
+            aspect-ratio: 1 / 1;
+            background-color: lightblue;
+        }
 
         a {
             text-decoration: none;
@@ -35,24 +37,23 @@
 
         a:hover {
             transform: scale(1.1);
-            box-shadow:  9px 15px #A10784;
+            box-shadow:  6px 10px #A10784;
             border-radius: 4px;
         }
 
         mat-card {
             max-width: 250px;
 
+            span {
+                font-weight: 500;
+            }
+
             mat-card-actions {
-                display: flex;
+                display: none;
                 flex-wrap: wrap;
                 flex-direction: row;
                 justify-content: space-between;
             }
         }
-    }
-
-    .more-albums {
-        margin: 0.5rem;
-        padding: 0.5rem;
     }
 }

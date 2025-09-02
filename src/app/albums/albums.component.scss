@@ -16,6 +16,10 @@
     .album-user-container {
         width: 100%;
 
+        .album-user-title {
+            margin: 1.5rem auto;
+        }
+
         .album-block {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

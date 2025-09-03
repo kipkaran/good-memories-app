@@ -13,6 +13,7 @@ $font-size-subheading: clamp(0.25rem, calc(1vw + 0.125rem), 1.25rem);
     justify-items: center;
 
     .banner-title {
+        text-align: center;
         
         .title {
         font-weight: 500;

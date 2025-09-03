@@ -3,9 +3,14 @@ $color: #3d0146;
 
 /* title style */
 .users-title {
-    margin: auto auto;
+    margin: 0.5rem auto;
     width: 94%;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 /* Spinner style */

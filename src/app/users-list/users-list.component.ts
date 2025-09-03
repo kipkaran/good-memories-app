@@ -2,6 +2,7 @@ import { Component, OnInit,  } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsersService } from '../users.service';
 import { AlbumsServiceService } from '../albums-service.service';
+import { AuthenticationService } from '../authentication.service';
 import { Users } from '../user';
 import { Router } from '@angular/router';
 
@@ -23,7 +24,7 @@ export class UsersListComponent implements OnInit {
   dataSource = new MatTableDataSource<Users>([]);
   
 
-  constructor(private userService: UsersService, private albumsService: AlbumsServiceService, private router: Router,) { }
+  constructor(private userService: UsersService, private albumsService: AlbumsServiceService, private router: Router, private authetication: AuthenticationService) { }
 
   ngOnInit(): void {
     //calling the users list method on initialisation
@@ -34,10 +35,17 @@ export class UsersListComponent implements OnInit {
   getUserList() {
     this.userService.getUsersWithTotalAlbums()
       .subscribe(data => {
+        console.log(data)
         this.dataSource.data = data;
         this.isLoading = false;
       }
     );
+  }
+
+  // logging out method
+  logOut() {
+    sessionStorage.removeItem('loggedInUser')
+    this.authetication.signOut();
   }
 
   //this tracks selected row

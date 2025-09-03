@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  isMenuOpen = false;
+  //menu variable for smaller screens
+  isMenuOpen: boolean = false;
 
+  //open an close function for smaller screens
   toggleMenu(){
     this.isMenuOpen = !this.isMenuOpen;
   }
@@ -17,5 +19,4 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

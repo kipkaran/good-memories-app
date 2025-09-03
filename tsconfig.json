@@ -6,6 +6,8 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -23,6 +25,13 @@
       "dom"
     ]
   },
+  "include": [
+        "src/**/*.ts",
+        "src/**/*.json" // Ensure JSON files are included in the compilation
+      ],
+      "exclude": [
+        "node_modules"
+      ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

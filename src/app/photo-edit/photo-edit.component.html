@@ -1,0 +1,32 @@
+<mat-card class="photo-edit">
+    <h2>Edit Image</h2>
+    <!-- Photo Edit form -->
+        <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="form-input" appearance="outline">
+                <mat-label>Title:</mat-label>
+                <input type="text" matInput id="title" formControlName="title" placeholder="title" />
+                <mat-error *ngIf="imageForm.get('title')?.invalid && imageForm.get('title')?.touched">
+                <span *ngIf="imageForm.get('title')?.errors?.['required']">Title is required.</span>
+                <span *ngIf="imageForm.get('title')?.errors?.['minlength']">Title must be at least 3 characters.</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-input" appearance="outline">
+                <mat-label for="url">Image URL:</mat-label>
+                <input type="text" matInput id="url" formControlName="url" />
+                <mat-error *ngIf="imageForm.get('url')?.invalid && imageForm.get('url')?.touched">
+                <span *ngIf="imageForm.get('url')?.errors?.['required']">URL is required.</span>
+                <span *ngIf="imageForm.get('url')?.errors?.['pattern']">Please enter a valid URL.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-input" appearance="outline">
+                <mat-label for="thumbnailUrl">Thumbnail URL:</mat-label>
+                <input type="text" matInput id="thumbnailUrl" formControlName="thumbnailUrl" />
+                <mat-error *ngIf="imageForm.get('thumbnailUrl')?.invalid && imageForm.get('thumbnailUrl')?.touched">
+                <span *ngIf="imageForm.get('thumbnailUrl')?.errors?.['required']">Thumbnail URL is required.</span>
+                <span *ngIf="imageForm.get('thumbnailUrl')?.errors?.['pattern']">Please enter a valid URL.</span>
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button type="submit" [disabled]="imageForm.invalid" color="primary">Update Image</button>
+        </form>
+</mat-card>

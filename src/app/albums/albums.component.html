@@ -1,0 +1,38 @@
+<!-- Album section -->
+<div class="albums-container">
+    <!-- Albums title and action buttons -->
+    <div class="album-title-container">
+    <div class="album-title">
+        <h1 class="name">Albums</h1>
+    </div>
+    <div class="back">
+        <button mat-raised-button routerLink="/users" color="accent">Back</button>
+    </div>
+    </div>
+    <div *ngIf="isLoading" class="spinner-container">
+        <mat-spinner></mat-spinner>
+</div>
+    <!-- Albums display -->
+<mat-card class="album-user-container">
+  <div *ngFor="let user of users" class="album-user-title">
+    <h2>{{ user.name }}'s Albums</h2>
+    <div class="album-block">
+      <div *ngFor="let album of user.albums">
+            <mat-card class="album-card">
+            <img *ngIf="album.coverPhoto" mat-card-image [src]="album.coverPhoto" alt="Album Cover Photo">
+                <mat-card-content>
+                <p><span>Album Title:</span> {{ album.title }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <p>Number of Photos: <span>{{ album.photoCount }}</span></p>
+                    <p>Album Id: <Span>{{ album.id }}</Span></p>
+                    <button mat-raised-button  (click)="goToPhotos(album.id)">
+                        Go to photos
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+      </div>
+    </div>
+  </div>
+</mat-card>
+

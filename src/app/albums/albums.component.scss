@@ -1,0 +1,76 @@
+/* Album section sylyes */
+.albums-container {
+    margin: 0 auto;
+    width: 90%;
+    color: #A10784;
+
+    .album-user-container {
+        margin: 0.5rem auto;
+        background: rgba(83, 102, 44, 0.4);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(9.6px);
+        -webkit-backdrop-filter: blur(9.6px);
+        border: 1px solid rgba(83, 102, 44, 0.5);
+    }
+
+    /* Album title sylyes */
+    .album-title-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Spinner style */
+    .spinner-container {
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+     /* Album cards sylyes */
+    .album-user-container {
+        width: 100%;
+
+        .album-user-title {
+            margin: 1.5rem auto;
+        }
+
+        .album-block {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+            grid-auto-rows: 1fr;
+            gap: 1.5rem;
+        }
+
+        .album-card {
+            aspect-ratio: 1 / 1;
+            background-color: lightblue;
+            color: #A10784;
+        }
+
+        button:hover {
+            background-color: #A10784;
+            color: #FFFFFF;
+        }
+
+        mat-card {
+            max-width: 250px;
+
+            span {
+                font-weight: 500;
+            }
+
+            mat-card-actions {
+                p{
+                    padding-left: 0.5rem;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+}

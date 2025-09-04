@@ -1,0 +1,45 @@
+/* album header styles */
+.album-info-header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 3px solid gray;
+
+    .album-title {
+        text-align: center;
+        font-weight: 500;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+ /* Spinner style */
+    .spinner-container {
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+/* images section styles */
+.images-container {
+    width: 90%;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+
+    .image-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+        grid-auto-rows: 1fr;
+        gap: 1.5rem;
+    }
+
+    .images {
+        aspect-ratio: 1 / 1;
+        background-color: lightblue;
+        color: #A10784;
+    }
+}
+

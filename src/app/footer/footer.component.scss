@@ -1,0 +1,30 @@
+/* footer section styles */
+.footer {
+    overflow: hidden;
+    position: sticky;
+    top: 100%;
+    background-color: #1f435b;
+    padding: 15px 20px;
+    text-align: center;
+    color: white;
+
+    .contacts {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        a {
+            text-decoration: none;
+            color: #FFFFFF;
+
+        }
+    }
+
+    div p:first-child {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+}

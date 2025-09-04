@@ -20,7 +20,7 @@ export class UsersService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-
+// API to get users and albums from json place holder
   getUsersWithTotalAlbums(): Observable<any[]> {
     const users$ = this.httpClient.get<Users[]>(this.usersUrl);
     const albums$ = this.httpClient.get<Albums[]>(this.albumsUrl);
@@ -37,9 +37,4 @@ export class UsersService {
       })
     );
   }
-  // API to get users from json place holder
-  //  getUsers(): Observable<Users[]> {
-  //   return this.httpClient.get<Users[]>(this.usersUrl);
-  // }
-
 }

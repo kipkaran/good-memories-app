@@ -1,31 +1,29 @@
 /* Heading styles */
 .heading {
     width: 100%;
-    height: 80vh;
+    margin: 0.5rem;
 }
 
-/* Header section styles */
-.header {
-    width: 85vmin;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    overflow: hidden;
-    border: 5px solid #A10784;
-    box-shadow: 10px 25px 30px rgba (30,30,200,0.3);
-    border-radius: 6px;
+/* Slider section styles */
+.slider-container {
+  width: 100%;
+  max-width: 800px; 
+  margin: 0 auto;
+  overflow: hidden;
+}
 
+.slider {
+  display: flex;
+  width: calc(100% * 6); /* 6 images (3 original + 3 duplicates) */
+  animation: slide 24s linear infinite; /* 24s for smooth scrolling */
+}
 
-    .header-wrapper {
-        width: 100%;
-        height: 50%;
-        display: flex;
-    }
-
-    img {
-        width: 100%;
-    }
+.slider img {
+  width: 100%;
+  padding: 0.5rem;
+  max-width: 800px; /* Match container width */
+  height: 300px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensure images fit without distortion */
 }
 
 /* About section styles */
@@ -40,6 +38,7 @@
         justify-content: space-evenly;
         justify-items: center;
         gap: 1rem;
+        margin-top: 1rem;
     }
 
     mat-card {
@@ -56,4 +55,13 @@
     span, h2 {
         font-weight: 500;
     }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
 }

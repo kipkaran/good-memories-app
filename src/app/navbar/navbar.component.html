@@ -10,8 +10,13 @@
   </span>
   <!-- Navigation links -->
 <div class="nav-menu" [class.is-open]="isMenuOpen">
-  <a routerLink="" active-current="page" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
-        true}" (click)="toggleMenu()">Home</a>
-  <a routerLink="about" routerLinkActive="active-link" (click)="toggleMenu()">About</a>
+  <a routerLink="landingPage" active-current="page" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}" *ngIf="!isAuthenticated()" (click)="toggleMenu()">Home</a>
+  <a routerLink="about" active-current="page" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+  true}" *ngIf="!isAuthenticated()" (click)="toggleMenu()">About</a>
+  <a routerLink="users" routerLinkActive="active-link" *ngIf="isAuthenticated()" (click)="toggleMenu()">Users</a>
+  <a routerLink="album" routerLinkActive="active-link" *ngIf="isAuthenticated()" (click)="toggleMenu()">Album</a>
+  <a routerLink="login"><button mat-raised-button color="primary" *ngIf="!isAuthenticated()" (click)="toggleMenu()">Log in</button></a>
+  <a href="#" (click)="logOut($event)"><button mat-raised-button color="warn" *ngIf="isAuthenticated()" (click)="toggleMenu()">Logout</button></a>
 </div> 
 </nav>

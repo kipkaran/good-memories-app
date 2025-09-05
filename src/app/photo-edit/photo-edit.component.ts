@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PhotosService } from '../photos.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-photo-edit',
@@ -17,7 +18,7 @@ export class PhotoEditComponent implements OnInit {
   imageId!: number;
 
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private photoService: PhotosService) {
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private photoService: PhotosService, private snackBar: MatSnackBar) {
     // Form set up with the validators and control to ensure right data to be posted to the server
     this.imageForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
@@ -49,12 +50,25 @@ export class PhotoEditComponent implements OnInit {
       const updatedImage = this.imageForm.value;
       this.photoService.updateImage(this.imageId, updatedImage).subscribe({
         next: (response) => {
-          alert('Image updated successfully!');
-          this.router.navigate(['/albumInfo', this.imageId])
+          console.log('Image updated successfully!', response); // Image succesfully updated
+          this.snackBar.open('Image updated successfully!', 'Close', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['success-snackbar'] 
+          });
+          this.router.navigate(['/albumInfo', this.imageId]);
         },
-        error: (err) => console.error('Error updating image:', err)
+        error: (err) => {
+          console.error('Error updating image:', err); // Log error
+          this.snackBar.open('Error updating image', 'Close', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar'] 
+          });
+        }
       });
     }
   }
-
 }

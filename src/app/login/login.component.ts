@@ -1,6 +1,7 @@
 declare var google: any;//declares the google accouns 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     // initializes google sign in
@@ -32,12 +33,29 @@ export class LoginComponent implements OnInit {
     return JSON.parse(atob(token.split(".")[1]));
   }
 
-  //this method handles the log in
+  //this method handles the log in and gives sucessfull or 
   handlingLogIn(response: any) {
-    if (response) {
-      const payload = this.decodeToken(response.credential);
-      sessionStorage.setItem("loggedInUser", JSON.stringify(payload));
-      this.router.navigate(['users']);
-    };
+    try {
+      if (response && response.credential) {
+        const payload = this.decodeToken(response.credential);
+        sessionStorage.setItem("loggedInUser", JSON.stringify(payload));
+        this.snackBar.open('Login successful!', 'Close', {
+          duration: 5000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
+        this.router.navigate(['users']);
+      } else {
+        throw new Error('Invalid login response');
+      }
+    } catch (error) {
+      this.snackBar.open('Login failed. Please try again.', 'Close', {
+        duration: 5000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['error-snackbar'] 
+      });
+      console.error('Login error:', error);
+    }
   }
 }

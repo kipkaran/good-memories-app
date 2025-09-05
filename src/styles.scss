@@ -8,3 +8,14 @@ body {
      background-repeat: no-repeat;
     }
 
+// Snackbar styles for logging messages and alerts 
+.success-snackbar {
+  background-color: #3e0147; 
+  color: white;
+  text-align: center; /* Ensure text is centered within the snackbar */
+}
+
+.error-snackbar {
+  background-color: #d32f2f;
+  color: white;
+}
